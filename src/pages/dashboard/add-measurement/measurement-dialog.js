@@ -34,7 +34,7 @@ const AddMeasurementDialog = ({ open, setOpen, item }) => {
   };
 
   const validationSchema = Yup.object().shape({
-    quantitye: Yup.string().required("Quantity is required!"),
+    quantity: Yup.string().required("Quantity is required!"),
     reason: Yup.string().required("Reason is required!"),
   });
 
@@ -51,7 +51,7 @@ const AddMeasurementDialog = ({ open, setOpen, item }) => {
           helpers.resetForm();
           setLoading(false);
           handleClose();
-          toast.success("user created successfully");
+          toast.success("measurement created successfully");
         });
     } catch (err) {
       console.log("USER_ERROR ", err);
@@ -112,13 +112,13 @@ const AddMeasurementDialog = ({ open, setOpen, item }) => {
                   <section className="flex gap-2 items-center justify-end mt-2">
                     <button
                       onClick={handleClose}
-                      className="border border-primary px-4 text-sm py-2 rounded-xl"
+                      className="border border-primary px-4 text-sm py-2 rounded"
                     >
                       Cancel
                     </button>
                     <button
                       type="submit"
-                      className="bg-primary px-4 py-2 rounded-xl text-sm text-white"
+                      className="bg-primary px-4 py-2 rounded text-sm text-white"
                     >
                       {loading && (
                         <svg

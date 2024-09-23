@@ -31,7 +31,7 @@ export const scanTest = (varietycode) =>{
 export const addMeasurement = (testid,day,quantity,reason) =>{
     const axiosInstance = UseAxios();
     return new Promise((resolve,reject) =>{
-        axiosInstance.post(`${APP_API_URL.ADD_MEASUREMENT}`,{testid,day,quantity,reason})
+        axiosInstance.post(`${APP_API_URL.ADD_MEASUREMENT}`,testid,day,quantity,reason)
             .then((res) =>{
                 resolve(res.data)
             })
