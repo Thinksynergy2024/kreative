@@ -5,8 +5,9 @@ import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import { toast } from "react-hot-toast";
 import { useDispatch } from "react-redux";
+import { addMeasurement } from "@/redux/service";
 
-const AddMeasurementDialog = ({ open, setOpen }) => {
+const AddMeasurementDialog = ({ open, setOpen, item }) => {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
@@ -14,54 +15,44 @@ const AddMeasurementDialog = ({ open, setOpen }) => {
     setOpen(false);
   };
 
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // Reset time to midnight
+
+  const targetDateString = item.dateonvase;
+  const [day, month, year] = targetDateString.split("/");
+  const targetDate = new Date(year, month - 1, day);
+  targetDate.setHours(0, 0, 0, 0); // Reset time to midnight for the target date
+
+  const differenceInMs = today - targetDate;
+  const differenceInDays = differenceInMs / (1000 * 60 * 60 * 24); // Exact difference without rounding
+
+  console.log("DIFFERENCE ", differenceInDays);
+
   const initialValues = {
-    full_name: "",
-    username: "",
-    email: "",
-    password: "",
-    phone_no: "",
-    role: "",
+    quantity: "",
+    reason: "",
   };
 
   const validationSchema = Yup.object().shape({
-    full_name: Yup.string().required("Full Name is required!"),
-    username: Yup.string().required("Last Name is required!"),
-    email: Yup.string()
-      .email("This is not a valid email")
-      .required("Email is required!"),
-    password: Yup.string()
-      .test(
-        "len",
-        "The password must be between 6 and 20 characters.",
-        (val) =>
-          !val || (val.toString().length >= 6 && val.toString().length <= 40)
-      )
-      .required("Password is required!"),
-    phone_no: Yup.string().required("Phone Number is required!"),
-    role: Yup.string().required("Assign role!"),
+    quantitye: Yup.string().required("Quantity is required!"),
+    reason: Yup.string().required("Reason is required!"),
   });
 
-  const handleCreateUser = async (formValue, helpers) => {
-    let roleId;
-    if (formValue?.role === "Admin" || "admin") {
-      roleId = 1;
-    } else if (formValue?.role !== "Admin" || "admin") {
-      roleId = 2;
-    }
+  const handleAddMeasurement = async (formValue, helpers) => {
     try {
       const formData = {
         ...formValue,
-        api_key: process.env.NEXT_PUBLIC_API_KEY,
-        role_id: roleId,
+        day: differenceInDays,
+        testid: item.testid,
       };
+      console.log("FORM_DATA ",formData);
       setLoading(true);
-      //   await CreateSystemUsers(formData).then(() => {
-      //     helpers.resetForm();
-      //     setLoading(false);
-      //     handleClose();
-      //     toast.success("user created successfully");
-      //     dispatch(getAllSystemUsers(process.env.NEXT_PUBLIC_API_KEY));
-      //   });
+        await addMeasurement(formData).then(() => {
+          helpers.resetForm();
+          setLoading(false);
+          handleClose();
+          toast.success("user created successfully");
+        });
     } catch (err) {
       console.log("USER_ERROR ", err);
       toast.error(err);
@@ -78,7 +69,7 @@ const AddMeasurementDialog = ({ open, setOpen }) => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <h1 className="text-center bg-primary text-white py-2">
+        <h1 className="text-center text-white bg-primary py-2">
           Add Measurement
         </h1>
         <DialogContent>
@@ -87,7 +78,7 @@ const AddMeasurementDialog = ({ open, setOpen }) => {
               <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
-                onSubmit={handleCreateUser}
+                onSubmit={handleAddMeasurement}
               >
                 <Form className="w-full">
                   <section className="flex flex-col items-center justify-center space-y-4">
@@ -95,11 +86,11 @@ const AddMeasurementDialog = ({ open, setOpen }) => {
                       <Field
                         className="block border border-gray py-2 text-sm rounded-xl px-4 focus:outline-none w-full"
                         type="text"
-                        placeholder="Full Name"
-                        name="full_name"
+                        placeholder="Quantity"
+                        name="quantity"
                       />
                       <ErrorMessage
-                        name="full_name"
+                        name="quantity"
                         component="div"
                         className="text-warning text-xs"
                       />
@@ -108,66 +99,11 @@ const AddMeasurementDialog = ({ open, setOpen }) => {
                       <Field
                         className="block border rounded-xl text-sm border-gray py-2 px-4 focus:outline-none w-full"
                         type="text"
-                        placeholder="Username"
-                        name="username"
+                        placeholder="Reason"
+                        name="reason"
                       />
                       <ErrorMessage
-                        name="username"
-                        component="div"
-                        className="text-warning text-xs"
-                      />
-                    </div>
-                    <div className="w-full">
-                      <Field
-                        className="block border border-gray py-2 rounded-xl px-4 focus:outline-none w-full"
-                        type="email"
-                        placeholder="Email"
-                        name="email"
-                      />
-                      <ErrorMessage
-                        name="email"
-                        component="div"
-                        className="text-warning text-xs"
-                      />
-                    </div>
-                    <div className="w-full">
-                      <Field
-                        className="block border border-gray py-2 rounded-xl px-4 focus:outline-none w-full"
-                        type="password"
-                        placeholder="Password"
-                        name="password"
-                      />
-                      <ErrorMessage
-                        name="password"
-                        component="div"
-                        className="text-warning text-xs"
-                      />
-                    </div>
-                    <div className="w-full">
-                      <Field
-                        className="block border border-gray py-2 rounded-xl px-4 focus:outline-none w-full"
-                        type="text"
-                        placeholder="Phone Number"
-                        name="phone_no"
-                      />
-                      <ErrorMessage
-                        name="phone_no"
-                        component="div"
-                        className="text-warning text-xs"
-                      />
-                    </div>
-                    <div className="w-full">
-                      <Field
-                        as="select"
-                        className="block text-sm pr-9 border border-gray rounded-xl py-2 px-4 focus:outline-none w-full"
-                        name="role"
-                      >
-                        <option value="">Assign Role</option>
-                        <option value="Admin">Admin</option>
-                        <option value="Basic User">Basic User</option>
-                      </Field>
-                      <ErrorMessage
-                        name="role"
+                        name="reason"
                         component="div"
                         className="text-warning text-xs"
                       />

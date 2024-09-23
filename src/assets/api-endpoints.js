@@ -8,7 +8,9 @@ export const API_URL = {
 
 
     /***************** TEST APIS **********************/
-    CREATE_TEST: 'https://kordesroses.thinksynergyltd.com/api1/rest/searchbyname.php'
+    CREATE_TEST: 'https://kordesroses.thinksynergyltd.com/api1/rest/searchbyname.php',
+    SCAN_TEST: 'https://kordesroses.thinksynergyltd.com/api1/rest/getvaselifetest.php',
+    ADD_MEASUREMENT: 'https://kordesroses.thinksynergyltd.com/api1/rest/updatevaselifetest.php'
 }
 
 
@@ -22,6 +24,8 @@ export const APP_API_URL = {
 
     /***************** TEST APIS **********************/
     CREATE_TEST: '/api/create_test',
+    SCAN_TEST: '/api/scan-test',
+    ADD_MEASUREMENT: '/api/add-measurement',
 
 }
 

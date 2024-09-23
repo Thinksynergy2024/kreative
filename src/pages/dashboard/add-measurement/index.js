@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import CustomizedLayout from "@/components/layout/customized-layout";
-import { scanMeasurement } from "@/redux/service";
+import { scanTest } from "@/redux/service";
 import * as Yup from "yup";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { toast } from "react-hot-toast";
@@ -32,7 +32,7 @@ const CreateTest = () => {
   const handleCreateTest = async (formValue, helpers) => {
     try {
       setLoading(true);
-      const res = await scanMeasurement(formValue.varietycode);
+      const res = await scanTest(formValue.varietycode);
       dispatch(setTests(res));
       helpers.resetForm();
       setLoading(false);
@@ -97,6 +97,7 @@ const CreateTest = () => {
           )}
         </Formik>
       </section>
+      <hr className="bg-gray" />
       <Varities />
     </>
   );
