@@ -20,12 +20,12 @@ export const menus = [
     children: [
       {
         label: "Active Test",
-        path: "/dashboard/test/active-test",
+        path: "/dashboard/active-tests",
         icon: "trips",
       },
       {
         label: "Complete Test",
-        path: "/dashboard/test/complete-test",
+        path: "/dashboard/complete-test",
         icon: "vehicles",
       },
     ],
