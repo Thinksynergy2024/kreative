@@ -57,6 +57,16 @@ const CustomizedHeader = ({ show }) => {
           ) : (
             ""
           )}
+          {router.pathname === "/dashboard/active-tests" ? (
+            <h1 className=" ">Active Tests</h1>
+          ) : (
+            ""
+          )}
+          {router.pathname === "/dashboard/complete-tests" ? (
+            <h1 className=" ">Complete Tests</h1>
+          ) : (
+            ""
+          )}
         </div>
         <div className="md:hidden block">
           <AiOutlineMenu

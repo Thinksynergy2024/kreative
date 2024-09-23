@@ -25,7 +25,7 @@ export const menus = [
       },
       {
         label: "Complete Test",
-        path: "/dashboard/complete-test",
+        path: "/dashboard/complete-tests",
         icon: "vehicles",
       },
     ],
