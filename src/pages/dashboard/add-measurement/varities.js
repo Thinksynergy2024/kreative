@@ -17,7 +17,7 @@ const Varities = () => {
     <section className="p-4">
       <section className="grid md:grid-cols-4 gap-4">
         {tests.map((item, index) => (
-          <div onClick={handleClickOpen} className="relative overflow-hidden bg-white shadow rounded h-60 cursor-pointer">
+          <div key={index} onClick={handleClickOpen} className="relative overflow-hidden bg-white shadow rounded h-60 cursor-pointer">
             {item.path && item.attachmentsid && item.name !== "" ? (
               <>
                 <div
