@@ -17,11 +17,14 @@ const AddMeasurementDialog = ({ open, setOpen, item }) => {
 
   const today = new Date();
   today.setHours(0, 0, 0, 0); // Reset time to midnight
-
-  const targetDateString = item.dateonvase;
-  const [day, month, year] = targetDateString.split("/");
-  const targetDate = new Date(year, month - 1, day);
-  targetDate.setHours(0, 0, 0, 0); // Reset time to midnight for the target date
+  let targetDateString;
+  let targetDate;
+  if (targetDateString) {
+    targetDateString = item?.dateonvase;
+    const [day, month, year] = targetDateString.split("/");
+    targetDate = new Date(year, month - 1, day);
+    targetDate.setHours(0, 0, 0, 0); // Reset time to midnight for the target date
+  }
 
   const differenceInMs = today - targetDate;
   const differenceInDays = differenceInMs / (1000 * 60 * 60 * 24); // Exact difference without rounding
@@ -45,14 +48,14 @@ const AddMeasurementDialog = ({ open, setOpen, item }) => {
         day: differenceInDays,
         testid: item.testid,
       };
-      console.log("FORM_DATA ",formData);
+      console.log("FORM_DATA ", formData);
       setLoading(true);
-        await addMeasurement(formData).then(() => {
-          helpers.resetForm();
-          setLoading(false);
-          handleClose();
-          toast.success("measurement created successfully");
-        });
+      await addMeasurement(formData).then(() => {
+        helpers.resetForm();
+        setLoading(false);
+        handleClose();
+        toast.success("measurement created successfully");
+      });
     } catch (err) {
       console.log("USER_ERROR ", err);
       toast.error(err);
