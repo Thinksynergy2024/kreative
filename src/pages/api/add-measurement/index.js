@@ -48,7 +48,6 @@ export default async function handler(req, res) {
         api_key: api_key,
         ...body,
       };
-      console.log("PAYLOAD ",payload)
 
       await backendAxiosInstance
         .post(`${API_URL.ADD_MEASUREMENT}`, payload, config)

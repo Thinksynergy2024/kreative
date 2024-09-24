@@ -10,7 +10,7 @@ export const menus = [
   },
   {
     label: "Vaselife",
-    path: "/dashboard/add-measurement",
+    path: "/dashboard/scan-measurement",
     icon: <RxDashboard className="" />,
   },
   {

@@ -16,7 +16,7 @@ const Varities = () => {
   };
 
   return (
-    <section className="w-5/12 mx-auto mt-4">
+    <section className="md:w-6/12 md:mx-auto mx-4 mt-4">
       <section className="">
         {tests.map((item, index) => (
           <div key={index} className="bg-white shadow rounded p-4 text-sm">

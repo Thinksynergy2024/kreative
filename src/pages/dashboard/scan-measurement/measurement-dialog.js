@@ -45,13 +45,12 @@ const AddMeasurementDialog = ({ open, setOpen, item, handleClose }) => {
         day: differenceInDays,
         testid: item.testid,
       };
-      console.log("FORM_DATA ", formData);
       setLoading(true);
       await addMeasurement(formData).then(() => {
         helpers.resetForm();
         setLoading(false);
         handleClose();
-        toast.success("Measurement created successfully");
+        toast.success("Measurement added successfully");
         dispatch(setTests([]));
       });
     } catch (err) {
@@ -81,7 +80,7 @@ const AddMeasurementDialog = ({ open, setOpen, item, handleClose }) => {
                 <section className="flex flex-col items-center justify-center space-y-4">
                   <div className="w-full">
                     <Field
-                      className="block border border-gray py-2 text-sm rounded-xl px-4 focus:outline-none w-full"
+                      className="block border border-gray py-2 text-sm rounded px-4 focus:outline-none w-full"
                       type="text"
                       placeholder="Quantity"
                       name="quantity"
@@ -94,7 +93,7 @@ const AddMeasurementDialog = ({ open, setOpen, item, handleClose }) => {
                   </div>
                   <div className="w-full">
                     <Field
-                      className="block border rounded-xl text-sm border-gray py-2 px-4 focus:outline-none w-full"
+                      className="block border rounded text-sm border-gray py-2 px-4 focus:outline-none w-full"
                       type="text"
                       placeholder="Reason"
                       name="reason"

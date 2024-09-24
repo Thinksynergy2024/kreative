@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import CustomizedLayout from "@/components/layout/customized-layout";
-import { scanTest } from "@/redux/service";
+import { scanMeasurement } from "@/redux/service";
 import * as Yup from "yup";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { toast } from "react-hot-toast";
@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { setTests } from "@/redux/features";
 import Varities from "./varities";
 
-const CreateTest = () => {
+const ScanMeasurement = () => {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
@@ -29,10 +29,10 @@ const CreateTest = () => {
     varietycode: Yup.string().required("Bar Code is required!"),
   });
 
-  const handleCreateTest = async (formValue, helpers) => {
+  const handleScanMeasurement = async (formValue, helpers) => {
     try {
       setLoading(true);
-      const res = await scanTest(formValue.varietycode);
+      const res = await scanMeasurement(formValue.varietycode);
       dispatch(setTests(res));
       helpers.resetForm();
       setLoading(false);
@@ -44,11 +44,11 @@ const CreateTest = () => {
 
   return (
     <>
-      <section className="p-4 bg-white shadow rounded md:w-5/12 mx-auto mb-4 mt-8">
+      <section className="p-4 bg-white shadow rounded md:w-1/2 md:mx-auto mx-4 mb-4 mt-8">
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={handleCreateTest}
+          onSubmit={handleScanMeasurement}
         >
           {({ innerRef }) => (
             <Form className="space-y-3">
@@ -103,6 +103,6 @@ const CreateTest = () => {
   );
 };
 
-CreateTest.getLayout = (page) => <CustomizedLayout>{page}</CustomizedLayout>;
+ScanMeasurement.getLayout = (page) => <CustomizedLayout>{page}</CustomizedLayout>;
 
-export default CreateTest;
+export default ScanMeasurement;
