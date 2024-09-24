@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { toast } from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { setTests } from "@/redux/features";
+import { setMeasurement } from "@/redux/features";
 import Varities from "./varities";
 
 const ScanMeasurement = () => {
@@ -33,7 +33,7 @@ const ScanMeasurement = () => {
     try {
       setLoading(true);
       const res = await scanMeasurement(formValue.varietycode);
-      dispatch(setTests(res));
+      dispatch(setMeasurement(res));
       helpers.resetForm();
       setLoading(false);
       toast.success("Bar code sent successfully");

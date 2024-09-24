@@ -5,7 +5,7 @@ import AddMeasurementDialog from "./measurement-dialog";
 
 const Varities = () => {
   const [open, setOpen] = React.useState(false);
-  const { tests } = useSelector((store) => store.test);
+  const { measurements } = useSelector((store) => store.test);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -18,7 +18,7 @@ const Varities = () => {
   return (
     <section className="md:w-6/12 md:mx-auto mx-4 mt-4">
       <section className="">
-        {tests.map((item, index) => (
+        {measurements.map((item, index) => (
           <div key={index} className="bg-white shadow rounded p-4 text-sm">
             <div className="flex items-center justify-between">
               <p>Test Id</p>

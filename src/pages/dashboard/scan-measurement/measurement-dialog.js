@@ -6,7 +6,7 @@ import DialogContent from "@mui/material/DialogContent";
 import { toast } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { addMeasurement } from "@/redux/service";
-import { setTests } from "@/redux/features";
+import { setMeasurement } from "@/redux/features";
 
 const AddMeasurementDialog = ({ open, setOpen, item, handleClose }) => {
   const [loading, setLoading] = useState(false);
@@ -52,10 +52,12 @@ const AddMeasurementDialog = ({ open, setOpen, item, handleClose }) => {
           setLoading(false);
           handleClose();
           toast.success("Measurement added successfully");
-          dispatch(setTests([]));
+          dispatch(setMeasurement([]));
         });
       } else {
         toast.error("The day is not even, Please do the test tomorrow");
+        setLoading(false);
+        handleClose();
       }
     } catch (err) {
       console.log("USER_ERROR ", err);

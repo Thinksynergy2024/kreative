@@ -26,3 +26,16 @@ export const addMeasurement = (testid,day,quantity,reason) =>{
             })
     })
 }
+
+export const fetchTests = (recordtype) =>{
+    const axiosInstance = UseAxios();
+    return new Promise((resolve,reject) =>{
+        axiosInstance.post(`${APP_API_URL.FETCH_TESTS}`,{recordtype})
+            .then((res) =>{
+                resolve(res.data)
+            })
+            .catch((err) =>{
+                reject(err.message)
+            })
+    })
+}
