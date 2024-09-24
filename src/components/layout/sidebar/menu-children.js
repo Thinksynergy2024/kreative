@@ -5,7 +5,7 @@ import { IoChevronDownOutline } from "react-icons/io5";
 import { IoChevronForward } from "react-icons/io5";
 import { menus } from "@/assets/menu";
 
-const MenuChildren = () => {
+const MenuChildren = ({ show }) => {
   const [openIndex, setOpenIndex] = useState(null);
   const currentPath = usePathname();
 
@@ -33,7 +33,7 @@ const MenuChildren = () => {
                   }`}
                 >
                   <p className="text-xl">{item.icon}</p>
-                  <p>{item.label}</p>
+                  <p className={`${show ? 'block' : 'hidden'}`}>{item.label}</p>
                 </Link>
               </section>
             ) : (
@@ -44,7 +44,7 @@ const MenuChildren = () => {
                 >
                   <div className="flex items-center gap-4 text-white">
                     <p>{item.icon}</p>
-                    <p>{item.label}</p>
+                    <p className={`${show ? 'block' : 'hidden'}`}>{item.label}</p>
                   </div>
                   <div>
                     <p className="text-white">{icon}</p>
