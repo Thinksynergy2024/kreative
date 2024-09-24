@@ -26,7 +26,7 @@ const AddMeasurementDialog = ({ open, setOpen, item, handleClose }) => {
   const differenceInMs = today - targetDate;
   const differenceInDays = differenceInMs / (1000 * 60 * 60 * 24); // Exact difference without rounding
 
-  console.log("DIFFERENCE ", differenceInDays);
+  const isEven = differenceInDays % 2 === 0;
 
   const initialValues = {
     quantity: "",
@@ -46,13 +46,17 @@ const AddMeasurementDialog = ({ open, setOpen, item, handleClose }) => {
         testid: item.testid,
       };
       setLoading(true);
-      await addMeasurement(formData).then(() => {
-        helpers.resetForm();
-        setLoading(false);
-        handleClose();
-        toast.success("Measurement added successfully");
-        dispatch(setTests([]));
-      });
+      if (isEven) {
+        await addMeasurement(formData).then(() => {
+          helpers.resetForm();
+          setLoading(false);
+          handleClose();
+          toast.success("Measurement added successfully");
+          dispatch(setTests([]));
+        });
+      } else {
+        toast.error("The day is not even, Please do the test tomorrow");
+      }
     } catch (err) {
       console.log("USER_ERROR ", err);
       toast.error(err);
