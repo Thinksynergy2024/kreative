@@ -10,15 +10,14 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 // import ManageUsers from "./manage-users";
 
-const CustomizedHeader = ({ show }) => {
+const CustomizedHeader = ({ setShow,show }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const { logoutUser, user } = useContext(authContext);
-  const token = useAuth();
   const router = useRouter();
-  const { data } = router.query;
 
-  const decodedData = data ? JSON.parse(decodeURIComponent(data)) : null;
+  console.log("SHOW ",show);
+
 
   const open = Boolean(anchorEl);
 
@@ -30,10 +29,14 @@ const CustomizedHeader = ({ show }) => {
     setAnchorEl(null);
   };
 
+  const handleOpenDrawer = () => {
+    setIsOpen(true);
+  }
+
   return (
     <>
       <div className="md:hidden block">
-        {isOpen && <Drawer {...{ isOpen, setIsOpen }} />}
+        { isOpen && <Drawer {...{ isOpen, setIsOpen }} />}
       </div>
       <section className="flex items-center justify-between px-4 sticky top-0 bg-white shadow h-[10vh] mb-2">
         <div className="md:block hidden">
@@ -71,7 +74,7 @@ const CustomizedHeader = ({ show }) => {
         <div className="md:hidden block">
           <AiOutlineMenu
             className="text-2xl cursor-pointer "
-            onClick={() => setIsOpen(true)}
+            onClick={handleOpenDrawer}
           />
         </div>
         <div className="flex items-center gap-2">

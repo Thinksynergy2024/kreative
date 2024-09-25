@@ -3,16 +3,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { IoChevronDownOutline } from "react-icons/io5";
 import { IoChevronForward } from "react-icons/io5";
-import { menus } from "@/assets/menu";
+import { menus } from "../menu";
 
-const MenuChildren = ({ show,setShow }) => {
+const DrawerMenu = () => {
   const [openIndex, setOpenIndex] = useState(null);
   const currentPath = usePathname();
 
   const handleOpen = (index) => {
     // Toggle the open state: open if currently closed, close if currently open
     setOpenIndex(openIndex === index ? null : index);
-    setShow(!show);
   };
 
   return (
@@ -34,7 +33,7 @@ const MenuChildren = ({ show,setShow }) => {
                   }`}
                 >
                   <p className="text-xl">{item.icon}</p>
-                  <p className={`${show ? 'block' : 'hidden'}`}>{item.label}</p>
+                  <p>{item.label}</p>
                 </Link>
               </section>
             ) : (
@@ -45,7 +44,7 @@ const MenuChildren = ({ show,setShow }) => {
                 >
                   <div className="flex items-center gap-4 text-background">
                     <p>{item.icon}</p>
-                    <p className={`${show ? 'block' : 'hidden'}`}>{item.label}</p>
+                    <p>{item.label}</p>
                   </div>
                   <div>
                     <p className="text-white">{icon}</p>
@@ -63,7 +62,7 @@ const MenuChildren = ({ show,setShow }) => {
                             : "text-background"
                         }`}
                       >
-                        <p className={`${show ? 'block text-sm' : 'hidden'}`}>{child.label}</p>
+                        <p className="text-sm">{child.label}</p>
                       </Link>
                     ))}
                   </section>
@@ -77,4 +76,4 @@ const MenuChildren = ({ show,setShow }) => {
   );
 };
 
-export default MenuChildren;
+export default DrawerMenu;

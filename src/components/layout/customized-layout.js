@@ -18,7 +18,7 @@ const CustomizedLayout = ({ children }) => {
         </div>
 
         <div className="flex-1 overflow-y-auto relative">
-          <CustomizedHeader {...{ show }} />
+          <CustomizedHeader {...{ setShow,show }} />
           <div>{children}</div>
           <section className="bg-white w-full p-4 absolute md:bottom-0 text-center text-sm">
             <p>Florisynergy. Powered by Think Synergy </p>

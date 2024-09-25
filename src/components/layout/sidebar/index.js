@@ -1,4 +1,3 @@
-import { menus } from "@/assets/menu";
 import MenuChild from "./menu-children";
 import {
   MdKeyboardDoubleArrowLeft,
@@ -46,7 +45,7 @@ const Sidebar = ({ show, setShow }) => {
           className="pl-2 h-[84vh] flex flex-col justify-between transition-all duration-500"
         >
           <div className="overflow-x-auto space-y-6 my-4 px-2">
-            <MenuChild {...{ show }} />
+            <MenuChild {...{ show,setShow }} />
           </div>
         </section>
       </section>
