@@ -1,11 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Inter+Tight&family=Kumbh+Sans&family=Nunito:wght@400;500;600;700&family=Roboto+Flex:opsz,wght@8..144,400;8..144,500&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Inter+Tight&family=Kumbh+Sans&family=Nunito:wght@400;500;600;700&family=Roboto+Flex:opsz,wght@8..144,400;8..144,500&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 * {
-    font-family: 'Kumbh Sans', sans-serif;
-  }
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+.tab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+.tab::-webkit-scrollbar {
+  display: none;
+}
