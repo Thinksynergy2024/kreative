@@ -12,7 +12,6 @@ const MenuChildren = ({ show,setShow }) => {
   const handleOpen = (index) => {
     // Toggle the open state: open if currently closed, close if currently open
     setOpenIndex(openIndex === index ? null : index);
-    setShow(!show);
   };
 
   return (
