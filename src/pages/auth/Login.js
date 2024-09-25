@@ -31,8 +31,8 @@ const Login = () => {
 
 
   return (
-    <section className="flex items-center gap-8 h-screen overflow-hidden p-12">
-      <div className="w-1/2 mx-auto space-y-8 px-4">
+    <section className="flex items-center justify-center gap-8 h-screen overflow-hidden sm:p-12 p-4">
+      <div className="md:w-1/2 w-full mx-auto space-y-8 px-4">
         <div className="w-7/12 mx-auto">
           <h1 className="text-2xl font-bold text-center">Login</h1>
         </div>
@@ -46,7 +46,7 @@ const Login = () => {
               <div className="w-full">
                 <Field
                  id="username"
-                  className="block border rounded-2xl text-sm border-gray py-3 px-4 focus:outline-none w-full"
+                  className="block border rounded text-sm border-gray py-3 px-4 focus:outline-none w-full"
                   type="text"
                   placeholder="Username"
                   name="username"
@@ -60,7 +60,7 @@ const Login = () => {
               <div className="w-full">
                 <Field
                  id="password"
-                  className="block border rounded-2xl text-sm border-gray py-3 px-4 focus:outline-none w-full"
+                  className="block border rounded text-sm border-gray py-3 px-4 focus:outline-none w-full"
                   type="password"
                   placeholder="Password"
                   name="password"
@@ -74,7 +74,7 @@ const Login = () => {
               <button
                 id="loginButton"
                 type="submit"
-                className="bg-primary rounded-2xl w-full px-8 py-3 text-sm text-white"
+                className="bg-primary rounded w-full px-8 py-3 text-sm text-white"
               >
                 {loading && (
                   <svg
@@ -102,7 +102,7 @@ const Login = () => {
           </Form>
         </Formik>
       </div>
-      <div className="w-1/2">
+      <div className="w-1/2 md:block hidden">
         <img className="rounded" src="/flower.jpg" alt="" />
       </div>
     </section>
