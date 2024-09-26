@@ -40,8 +40,13 @@ const ActiveTests = () => {
   useEffect(() => {
     if (tests.length === 0) {
       getAllTests();
+    }else{
+    setLoading(false);
     }
   }, []);
+
+  const newArray = tests.filter((test) => test.fromapp === "1");
+
 
   return (
     <section className="p-4">
@@ -52,7 +57,7 @@ const ActiveTests = () => {
           <Tabs {...{ currentTab, setCurrentTab }} />
           {currentTab === 0 && (
             <DataGrid
-              dataSource={tests}
+              dataSource={newArray}
               allowColumnReordering={true}
               rowAlternationEnabled={true}
               showBorders={true}
