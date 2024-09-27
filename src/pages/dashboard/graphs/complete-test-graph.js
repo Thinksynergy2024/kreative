@@ -13,21 +13,31 @@ if (typeof Highcharts === "object") {
 const CompleteTestGraph = () => {
   const { tests } = useSelector((store) => store.test);
 
-  //   filter completed tests
+  // Filter completed tests
   const completedTests = tests.filter((test) => test.fromapp === "0");
 
   // Calculate counts for each phase
   const phaseOneCount = completedTests.filter((test) => test.phase === "Phase 1").length;
   const phaseTwoCount = completedTests.filter((test) => test.phase === "Phase 2").length;
-  const phaseThreeCount = completedTests.filter(
-    (test) => test.phase === "Phase 3"
-  ).length;
-  const phaseFourCount = completedTests.filter(
-    (test) => test.phase === "Phase 4"
-  ).length;
-  const phaseFiveCount = completedTests.filter(
-    (test) => test.phase === "Phase 5"
-  ).length;
+  const phaseThreeCount = completedTests.filter((test) => test.phase === "Phase 3").length;
+  const phaseFourCount = completedTests.filter((test) => test.phase === "Phase 4").length;
+  const phaseFiveCount = completedTests.filter((test) => test.phase === "Phase 5").length;
+
+  // Create an array of phase data
+  const phaseData = [
+    { name: "Phase 1", y: phaseOneCount, color: "red" },
+    { name: "Phase 2", y: phaseTwoCount, color: "green" },
+    { name: "Phase 3", y: phaseThreeCount, color: "blue" },
+    { name: "Phase 4", y: phaseFourCount, color: "orange" },
+    { name: "Phase 5", y: phaseFiveCount, color: "#981B2D" }
+  ];
+
+  // Sort the array in descending order by the count (y value)
+  phaseData.sort((a, b) => b.y - a.y);
+
+  // Extract the sorted phase names and counts for the chart
+  const sortedCategories = phaseData.map((phase) => phase.name);
+  const sortedData = phaseData.map((phase) => ({ y: phase.y, color: phase.color }));
 
   const [options, setOptions] = useState({
     chart: {
@@ -37,7 +47,7 @@ const CompleteTestGraph = () => {
       text: "Complete Tests by Phase",
     },
     xAxis: {
-      categories: ["Phase 1", "Phase 2", "Phase 3", "Phase 4", "Phase 5"], // Phases on the x-axis
+      categories: sortedCategories, // Sorted phases on the x-axis
       title: {
         text: "Phases",
       },
@@ -69,13 +79,7 @@ const CompleteTestGraph = () => {
     series: [
       {
         name: "Complete Tests",
-        data: [
-          { y: phaseOneCount, color: "red" }, // Red
-          { y: phaseTwoCount, color: "green" }, // green
-          { y: phaseThreeCount, color: "blue" }, // blue
-          { y: phaseFourCount, color: "orange" }, // Orange
-          { y: phaseFiveCount, color: "#981B2D" }, // Purple
-        ], // Data for each phase, with colors
+        data: sortedData, // Sorted data for each phase, with colors
       },
     ],
   });

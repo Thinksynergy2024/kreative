@@ -24,7 +24,7 @@ const CompleteTests = () => {
   const { tests } = useSelector((store) => store.test);
   const [currentTab, setCurrentTab] = useState(0);
 
-  const newArray = tests.filter((test) => test.fromapp === "0");
+  const newArray = tests.filter((test) => test.fromapp === "0" && test.stemsvased !== '0');
 
   return (
     <section className="p-4">

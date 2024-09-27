@@ -16,7 +16,7 @@ const PhaseTwo = () => {
   const { tests } = useSelector((store) => store.test);
 
 //   filter phase-one tests
-const newArray = tests.filter((test) => test.phase === 'Phase 2');
+const newArray = tests.filter((test) => test.phase === 'Phase 2' && test.stemsvased !== '0');
 
   return (
     <div>
