@@ -15,6 +15,7 @@ import PhaseThree from "../active-tests/tabs/phase-three";
 import PhaseFour from "../active-tests/tabs/phase-four";
 import PhaseFive from "../active-tests/tabs/phase-five";
 import PhaseSix from "../active-tests/tabs/phase-six";
+import ActionButtons from "../active-tests/action-button";
 
 const DataGrid = dynamic(() => import("devextreme-react/data-grid"), {
   ssr: false,
@@ -24,11 +25,16 @@ const CompleteTests = () => {
   const { tests } = useSelector((store) => store.test);
   const [currentTab, setCurrentTab] = useState(0);
 
-  const newArray = tests.filter((test) => test.fromapp === "0" && test.stemsvased !== '0');
+  const newArray = tests.filter(
+    (test) => test.fromapp === "0" && test.stemsvased !== "0"
+  );
 
   return (
     <section className="p-4">
-      <Tabs {...{ currentTab,setCurrentTab}} />
+      <Tabs {...{ currentTab, setCurrentTab }} />
+      <div className="flex justify-end mb-1">
+        <ActionButtons />
+      </div>
       {currentTab === 0 && (
         <DataGrid
           dataSource={newArray}

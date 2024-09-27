@@ -3,21 +3,32 @@ import { BiExport } from "react-icons/bi";
 import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 const ActionButtons = ({
 }) => {
   const { tests } = useSelector((store) => store.test);
+  const router = useRouter();
+  const currentPath = router.route;
 
-  const newArray = tests.filter((test) => test.fromapp === "1" && test.stemsvased !== '0');
+  const activeTests = tests.filter((test) => test.fromapp === "1" && test.stemsvased !== '0');
+  const completeTests = tests.filter((test) => test.fromapp === "0" && test.stemsvased !== '0');
 
 
 
 
   // export to excel
   const exportToExcel = () => {
-    const dataToExport = newArray;
-    const fileName = "active_tests.xlsx";
-   
+    let dataToExport;
+    let fileName;
+
+    if(currentPath === '/dashboard/active-tests'){
+      dataToExport = activeTests;
+      fileName = "active_tests.xlsx";
+    }else if(currentPath === '/dashboard/complete-tests'){
+      dataToExport = completeTests;
+      fileName = "complete_tests.xlsx";
+    }
   
     if (dataToExport) {
       const worksheet = XLSX.utils.json_to_sheet(dataToExport);
