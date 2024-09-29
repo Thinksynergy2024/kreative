@@ -30,4 +30,9 @@ export const menus = [
       },
     ],
   },
+  {
+    label: "User Guide",
+    path: "/dashboard/user-guide",
+    icon: <RxDashboard className="" />,
+  },
 ];

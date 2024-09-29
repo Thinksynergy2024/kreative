@@ -70,6 +70,11 @@ const CustomizedHeader = ({ setShow,show }) => {
           ) : (
             ""
           )}
+          {router.pathname === "/dashboard/user-guide" ? (
+            <h1 className=" ">User Guide</h1>
+          ) : (
+            ""
+          )}
         </div>
         <div className="md:hidden block">
           <AiOutlineMenu
