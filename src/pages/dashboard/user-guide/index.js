@@ -24,12 +24,12 @@ const UserGuide = () => {
             fields.
           </li>
           <li>
-            After entering their credentials, users click the "Login" button to
+            After entering their credentials, users click the Login button to
             submit the login form.
           </li>
           <li>
             The system validates the provided credentials to authenticate the
-            user's identity.
+            users identity.
           </li>
         </ul>
       </div>
@@ -42,7 +42,7 @@ const UserGuide = () => {
           </li>
           <li>
             The dashboard interface is displayed, presenting various modules and
-            data visualizations relevant to the user's role.
+            data visualizations relevant to the users role.
           </li>
         </ul>
       </div>
@@ -90,8 +90,8 @@ const UserGuide = () => {
         <p className="text-sm px-4">
           This menu allows users to scan a barcode to identify a specific item
           (or variety). After scanning, users can add a measurement (e.g.,
-          quantity) and provide a reason for the measurement change. The "Add
-          Measurement" button facilitates this process by opening two fields:
+          quantity) and provide a reason for the measurement change. The Add
+          Measurement button facilitates this process by opening two fields:
           one for entering the quantity and another for specifying the reason.
         </p>
       </div>
@@ -113,7 +113,7 @@ const UserGuide = () => {
         <h1 className="font-bold">How to Use</h1>
         <h2 className="px-4 text-sm font-bold mt-4">Scan Barcode</h2>
         <ul className="list-disc px-10 text-sm">
-          <li>Use the scanner to scan the item's barcode.</li>
+          <li>Use the scanner to scan the item barcode.</li>
           <li>The system will display the identified item variety.</li>
         </ul>
         <h2 className="px-4 text-sm font-bold mt-4">Add Measurement</h2>
@@ -123,7 +123,7 @@ const UserGuide = () => {
         <ul className="list-disc px-10 text-sm">
           <li>Quantity: Enter the amount to add.</li>
           <li>
-            Reason: Specify why you're adding the measurement (e.g., inventory
+            Reason: Specify why you are adding the measurement (e.g., inventory
             update).
           </li>
           <h2 className="mt-4 font-bold">Submit</h2>
@@ -137,19 +137,19 @@ const UserGuide = () => {
       </div>
       <div>
         <h1 className="text-xl font-bold">4. View Test Menu</h1>
-        <h2 className="font-bold px-6">Navigating to "View Test" Menu</h2>
+        <h2 className="font-bold px-6">Navigating to View Test Menu</h2>
         <ul className="list-disc px-12 text-sm">
           <li>
-            Trigger: User clicks on the "View Test" option in the main menu.
+            Trigger: User clicks on the View Test option in the main menu.
           </li>
           <li>
-            UI Response: The "View Test" page opens, showing two dropdowns:
+            UI Response: The View Test page opens, showing two dropdowns:
             Active Test and Complete Test.
           </li>
         </ul>
         <div className="my-4">
           <h2 className="px-4 font-bold">Active Test Menu</h2>
-          <h3 className="text-sm font-bold px-4 mt-2">Selecting "Active Test"</h3>
+          <h3 className="text-sm font-bold px-4 mt-2">Selecting Active Test</h3>
           <ul className="list-disc px-10 text-sm">
             <li>Trigger: User clicks on the Active Test Menu</li>
             <li>
@@ -161,8 +161,8 @@ const UserGuide = () => {
           </h2>
           <ul className="list-disc px-10 text-sm">
             <li>
-              The table has tabs representing different phases (e.g., "Phase 1,"
-              "Phase 2," "Phase 3").
+              The table has tabs representing different phases (e.g., Phase 1,
+              Phase 2, Phase 3).
             </li>
             <li>User can switch tabs to view tests in different phases.</li>
             <li>
@@ -174,7 +174,7 @@ const UserGuide = () => {
 
         <div className="my-4">
           <h2 className="px-4 font-bold">Complete Test Menu</h2>
-          <h3 className="text-sm font-bold px-4 mt-2">Selecting "Complete Test"</h3>
+          <h3 className="text-sm font-bold px-4 mt-2">Selecting Complete Test</h3>
           <ul className="list-disc px-10 text-sm">
             <li>Trigger: User clicks on the Complete Test Menu</li>
             <li>
@@ -186,8 +186,8 @@ const UserGuide = () => {
           </h2>
           <ul className="list-disc px-10 text-sm">
             <li>
-              The table has tabs representing different phases (e.g., "Phase 1,"
-              "Phase 2," "Phase 3").
+              The table has tabs representing different phases (e.g., Phase 1,
+              Phase 2, Phase 3).
             </li>
             <li>User can switch tabs to view tests in different phases.</li>
             <li>
