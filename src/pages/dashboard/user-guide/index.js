@@ -69,7 +69,7 @@ const UserGuide = () => {
           </p>
         </div>
         <h1 className="font-bold px-6">Graphs</h1>
-        <p className="px-8">
+        <p className="px-8 text-sm">
           There are two graphs presenting visual representations of different
           data sets:
         </p>
@@ -88,7 +88,7 @@ const UserGuide = () => {
         <h1 className="text-xl font-bold">3. Vaselife Menu</h1>
         <p className="text-sm px-4">
           This menu allows users to scan a barcode to identify a specific
-          vaselife test (or variety). After scanning, users can add a can add
+          vaselife test. After scanning, users can add
           the quantity of stems removed during the vase life review date, the
           second field allows the vase life manager to enter the reason for
           removal of the stems. The Add Measurement button facilitates this
