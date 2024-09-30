@@ -75,6 +75,11 @@ const CustomizedHeader = ({ setShow,show }) => {
           ) : (
             ""
           )}
+          {router.pathname === "/dashboard/scan-measurement" ? (
+            <h1 className=" ">Add Vaselife Measurements</h1>
+          ) : (
+            ""
+          )}
         </div>
         <div className="md:hidden block">
           <AiOutlineMenu

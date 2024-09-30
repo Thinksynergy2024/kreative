@@ -9,12 +9,12 @@ export const menus = [
     icon: <RxDashboard className="" />,
   },
   {
-    label: "Vaselife",
+    label: "Add Vaselife Measurement",
     path: "/dashboard/scan-measurement",
     icon: <RxDashboard className="" />,
   },
   {
-    label: "View Test",
+    label: "View Vaselife Test",
     path: "/dashboard/vaselife",
     icon: <RxDashboard className="" />,
     children: [

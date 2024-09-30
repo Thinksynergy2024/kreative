@@ -62,7 +62,7 @@ const UserGuide = () => {
       <div className="my-4">
         <div className="my-4">
           <h1 className="text-xl font-bold">2. Dashboard</h1>
-          <p className="text-sm px-4">
+          <p className="text-sm px-6">
             The dashboard page displays two summary bar graphs providing key
             insights into various aspects of operations. These summary cards
             are:
@@ -80,28 +80,33 @@ const UserGuide = () => {
           </p>
           <li>Complete Tests by Phase</li>
           <p>
-            Represents data related to night checks conducted during the
-            specified period per lodge.
+            This graph illustrates complete tests arranged in descending order.
           </p>
         </ul>
       </div>
       <div className="my-4">
         <h1 className="text-xl font-bold">3. Vaselife Menu</h1>
         <p className="text-sm px-4">
-          This menu allows users to scan a barcode to identify a specific item
-          (or variety). After scanning, users can add a measurement (e.g.,
-          quantity) and provide a reason for the measurement change. The Add
-          Measurement button facilitates this process by opening two fields:
-          one for entering the quantity and another for specifying the reason.
+          This menu allows users to scan a barcode to identify a specific
+          vaselife test (or variety). After scanning, users can add a can add
+          the quantity of stems removed during the vase life review date, the
+          second field allows the vase life manager to enter the reason for
+          removal of the stems. The Add Measurement button facilitates this
+          process by opening two fields: one for entering the quantity and
+          another for specifying the reason.
         </p>
       </div>
-      <div className="px-4">
+      <div className="px-6">
         <h1 className="font-bold">Main Features</h1>
         <ul className="list-disc px-8 text-sm">
-          <li>Barcode Scanning: Identify an item by scanning its barcode.</li>
           <li>
-            Add Measurement: Enter the quantity and reason for the measurement
-            addition.
+            Barcode Scanning: Identify a vaselife test by scanning its barcode.
+          </li>
+          <li>
+            Add Measurement: Enter the quantity of stems removed during the vase
+            life text review date, additionally, the system allows the vase life
+            test manager to enter the reason for removal of the stems from the
+            vase.
           </li>
           <li>
             User-Friendly Interface: Easy-to-use buttons and fields for a
@@ -109,46 +114,51 @@ const UserGuide = () => {
           </li>
         </ul>
       </div>
-      <div className="px-4 my-4">
+      <div className="px-6 my-4">
         <h1 className="font-bold">How to Use</h1>
         <h2 className="px-4 text-sm font-bold mt-4">Scan Barcode</h2>
         <ul className="list-disc px-10 text-sm">
-          <li>Use the scanner to scan the item barcode.</li>
-          <li>The system will display the identified item variety.</li>
+          <li>Use the scanner to scan the vase life test barcode.</li>
+          <li>
+            The system will display the vase life test details for the scanned
+            barcode. The test details include (a. variety b. date on vase c.
+            stems vased d. Date of receipt of stems e. damaged on arrival f. cut
+            stage g. comments h. day 7 presentation of flowers i. date of
+            shipment)
+          </li>
         </ul>
         <h2 className="px-4 text-sm font-bold mt-4">Add Measurement</h2>
         <p className="px-6 text-sm">
           Click Add Measurement to open fields for:
         </p>
         <ul className="list-disc px-10 text-sm">
-          <li>Quantity: Enter the amount to add.</li>
+          <li>Quantity: Enter the quantity of stems removed from the vase.</li>
           <li>
-            Reason: Specify why you are adding the measurement (e.g., inventory
-            update).
+            Reason: Specify why you are removing the stems from the vase (e.g., Dead, wilting).
           </li>
-          <h2 className="mt-4 font-bold">Submit</h2>
-          <ul className="px-4">
+        </ul>
+        <h2 className="mt-4 font-bold text-sm px-4">Submit</h2>
+          <ul className="list-disc px-10 text-sm">
             <li>
               After filling in both fields, click Submit to save the
               measurement.
             </li>
           </ul>
-        </ul>
       </div>
       <div>
         <h1 className="text-xl font-bold">4. View Test Menu</h1>
-        <h2 className="font-bold px-6">Navigating to View Test Menu</h2>
-        <ul className="list-disc px-12 text-sm">
+        <h2 className="font-bold px-8 mt-4">Navigating to View Test Menu</h2>
+        <ul className="list-disc px-16 text-sm">
           <li>
             Trigger: User clicks on the View Test option in the main menu.
           </li>
           <li>
-            UI Response: The View Test page opens, showing two dropdowns:
-            Active Test and Complete Test.
+            UI Response: The View Test page opens, showing two dropdowns: Active
+            Test and Complete Test.
           </li>
         </ul>
-        <div className="my-4">
-          <h2 className="px-4 font-bold">Active Test Menu</h2>
+        <div className="my-4 px-8">
+          <h2 className="font-bold">Active Test Menu</h2>
           <h3 className="text-sm font-bold px-4 mt-2">Selecting Active Test</h3>
           <ul className="list-disc px-10 text-sm">
             <li>Trigger: User clicks on the Active Test Menu</li>
@@ -172,9 +182,11 @@ const UserGuide = () => {
           </ul>
         </div>
 
-        <div className="my-4">
-          <h2 className="px-4 font-bold">Complete Test Menu</h2>
-          <h3 className="text-sm font-bold px-4 mt-2">Selecting Complete Test</h3>
+        <div className="my-4 px-8">
+          <h2 className="font-bold">Complete Test Menu</h2>
+          <h3 className="text-sm font-bold px-4 mt-2">
+            Selecting Complete Test
+          </h3>
           <ul className="list-disc px-10 text-sm">
             <li>Trigger: User clicks on the Complete Test Menu</li>
             <li>
