@@ -22,21 +22,28 @@ const ScanMeasurement = () => {
   }, []);
 
   const initialValues = {
-    varietycode: "",
+    evaluationnumber: "",
   };
 
   const validationSchema = Yup.object().shape({
-    varietycode: Yup.string().required("Bar Code is required!"),
+    evaluationnumber: Yup.string().required("Bar Code is required!"),
   });
 
   const handleScanMeasurement = async (formValue, helpers) => {
+    console.log("FORM_VALUE ",formValue);
     try {
       setLoading(true);
-      const res = await scanMeasurement(formValue.varietycode);
-      dispatch(setMeasurement(res));
-      helpers.resetForm();
-      setLoading(false);
-      toast.success("Bar code sent successfully");
+      const res = await scanMeasurement(formValue.evaluationnumber);
+      if (res.length === 0) {
+        toast.error("No vaselife tests for the scanned code");
+        helpers.resetForm();
+        setLoading(false);
+      } else {
+        dispatch(setMeasurement(res));
+        toast.success("Bar code sent successfully");
+        helpers.resetForm();
+        setLoading(false);
+      }
     } catch (err) {
       toast.error(err);
     }
@@ -57,11 +64,11 @@ const ScanMeasurement = () => {
                   className="border border-primary rounded px-4 py-2 text-sm focus:outline-none w-full"
                   type="text"
                   placeholder="Focus your cursor here"
-                  name="varietycode"
+                  name="evaluationnumber"
                   innerRef={inputRef}
                 />
                 <ErrorMessage
-                  name="varietycode"
+                  name="evaluationnumber"
                   component="div"
                   className="text-warning text-xs"
                 />
@@ -103,6 +110,8 @@ const ScanMeasurement = () => {
   );
 };
 
-ScanMeasurement.getLayout = (page) => <CustomizedLayout>{page}</CustomizedLayout>;
+ScanMeasurement.getLayout = (page) => (
+  <CustomizedLayout>{page}</CustomizedLayout>
+);
 
 export default ScanMeasurement;

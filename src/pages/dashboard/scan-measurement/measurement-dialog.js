@@ -114,13 +114,13 @@ const AddMeasurementDialog = ({ open, setOpen, item, handleClose }) => {
                 <section className="flex gap-2 items-center justify-end mt-2">
                   <button
                     onClick={handleClose}
-                    className="border border-primary px-4 text-sm py-2 rounded"
+                    className="border border-primary px-4 text-xs py-2 rounded"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="bg-primary px-4 py-2 rounded text-sm text-white"
+                    className="bg-primary px-4 py-2 rounded text-xs text-white"
                   >
                     {loading && (
                       <svg

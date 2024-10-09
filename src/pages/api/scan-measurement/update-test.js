@@ -49,11 +49,11 @@ export default async function handler(req, res) {
         ...body,
       };
 
-      console.log("END_POINT ",`${API_URL.SCAN_MEASUREMENT}`)
+      console.log("END_POINT ",`${API_URL.UPDATE_TEST}`)
       console.log("PAYLOAD ",payload)
 
       await backendAxiosInstance
-        .post(`${API_URL.SCAN_MEASUREMENT}`,payload, config)
+        .post(`${API_URL.UPDATE_TEST}`,payload, config)
         .then((response) => {
           res.status(200).json(response.data);
         })
