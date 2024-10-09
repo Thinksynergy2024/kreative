@@ -13,21 +13,21 @@ const UpdateTestDialog = ({ open, item, handleClose }) => {
   const dispatch = useDispatch();
 
   const initialValues = {
-    dateofshipment: item.dateofshipment || "",
-    dateonvasegermany: item.dateonvasegermany || "",
-    damagedonarrival: item.damagedonarrival || "",
-    cutstageonarrival: item.cutstageonarrival || "",
-    cutstageatendoftest: item.cutstageatendoftest || "",
-    daysevenpresentation: item.daysevenpresentation || "",
-    budheight: item.budheight || "",
-    reasonforenteringtest: item.reasonforenteringtest || "",
+    dateofshipment: item?.dateofshipment || "",
+    dateonvasegermany: item?.dateonvasegermany || "",
+    damagedonarrival: item?.damagedonarrival || "",
+    cutstageonarrival: item?.cutstageonarrival || "",
+    cutstageatendoftest: item?.cutstageatendoftest || "",
+    daysevenpresentation: item?.daysevenpresentation || "",
+    budheight: item?.budheight || "",
+    reasonforenteringtest: item?.reasonforenteringtest || "",
   };
 
   const handleUpdateTest = async (formValue, helpers) => {
     try {
       const formData = {
         ...formValue,
-        testid: item.testid,
+        testid: item?.testid,
       };
       setLoading(true);
       await updateTest(formData).then(() => {

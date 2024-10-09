@@ -38,57 +38,57 @@ const Varities = () => {
             >
               <div className="flex items-center justify-between">
                 <p className="font-bold">Test Id:</p>
-                <p className="text-xs">{item.testid}</p>
+                <p className="text-xs">{item?.testid}</p>
               </div>
               <hr className="bg-gray my-2" />
               <div className="flex items-center justify-between">
                 <p className="font-bold">Variety Code:</p>
-                <p className="text-xs">{item.varietycode}</p>
+                <p className="text-xs">{item?.varietycode}</p>
               </div>
               <hr className="bg-gray my-2" />
               <div className="flex items-center justify-between">
                 <p className="font-bold">Date on vase:</p>
-                <p className="text-xs">{item.dateonvasegermany}</p>
+                <p className="text-xs">{item?.dateonvasegermany}</p>
               </div>
               <hr className="bg-gray my-2" />
               <div className="flex items-center justify-between">
                 <p className="font-bold">Phase:</p>
-                <p className="text-xs">{item.phase}</p>
+                <p className="text-xs">{item?.phase}</p>
               </div>
               <hr className="bg-gray my-2" />
               <div className="flex items-center justify-between">
                 <p className="font-bold">Date of shipment:</p>
-                <p className="text-xs">{item.dateofshipment}</p>
+                <p className="text-xs">{item?.dateofshipment}</p>
               </div>
               <hr className="bg-gray my-2" />
               <div className="flex items-center justify-between">
                 <p className="font-bold">Damaged on arrival:</p>
-                <p className="text-xs">{item.damagedonarrival}</p>
+                <p className="text-xs">{item?.damagedonarrival}</p>
               </div>
               <hr className="bg-gray my-2" />
               <div className="flex items-center justify-between">
                 <p className="font-bold">Cut stage on arrival:</p>
-                <p className="text-xs">{item.cutstageonarrival}</p>
+                <p className="text-xs">{item?.cutstageonarrival}</p>
               </div>
               <hr className="bg-gray my-2" />
               <div className="flex items-center justify-between">
                 <p className="font-bold">Cut stage on end of test:</p>
-                <p className="text-xs">{item.cutstageatendoftest}</p>
+                <p className="text-xs">{item?.cutstageatendoftest}</p>
               </div>
               <hr className="bg-gray my-2" />
               <div className="flex items-center justify-between">
                 <p className="font-bold">Day seven presentation:</p>
-                <p className="text-xs">{item.daysevenpresentation}</p>
+                <p className="text-xs">{item?.daysevenpresentation}</p>
               </div>
               <hr className="bg-gray my-2" />
               <div className="flex items-center justify-between">
                 <p className="font-bold">Bud height:</p>
-                <p className="text-xs">{item.budheight}</p>
+                <p className="text-xs">{item?.budheight}</p>
               </div>
               <hr className="bg-gray my-2" />
               <div className="flex items-center justify-between">
                 <p className="font-bold">Reason for entering test:</p>
-                <p className="text-xs">{item.reasonforenteringtest}</p>
+                <p className="text-xs">{item?.reasonforenteringtest}</p>
               </div>
               <hr className="bg-gray my-2" />
 
